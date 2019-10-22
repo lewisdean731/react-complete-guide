@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import ValidationComponent from './ValidationComponent/ValidationComponent'
+import CharComponent from './CharComponent/CharComponent'
 
 class App extends Component {
   state = {
     text: 'test',
-    textLengthStatus: 'Too short!'
+    textLengthStatus: 'Too short!',
+    textAsCharArray: 'test'
   }
 
   textChangeHandler = ( event ) => {
@@ -20,9 +22,25 @@ class App extends Component {
     else {
       this.setState( {textLengthStatus: 'Just right!'} );
     }
+
+    this.setState( {textAsCharArray: this.state.text.split('')})
+  }
+
+  deleteCharboxHandler = ( index ) => {
+    const textAsCharArray = this.state.text.split('');
+    textAsCharArray.splice(index, 1);
+    const newText = textAsCharArray.join('');
+    this.setState({text: newText});
   }
 
   render() {
+
+    const charList = this.state.text.split('').map((char, index) => {
+      return <CharComponent
+        char={char}
+        key={index}
+        clicked={() => this.deleteCharboxHandler(index)} />;
+    });
 
     return (
       <div className="App">
@@ -31,6 +49,9 @@ class App extends Component {
           text={this.state.text}
           textLengthStatus={this.state.textLengthStatus}>
         </ValidationComponent>
+        <div>
+          {charList}
+        </div>
       </div>
     );
   }

@@ -1,11 +1,10 @@
 .CharComponent{
-  width: 10%;
+  width: 5%;
   margin: auto;
-  margin-top: 2%;
-  margin-bottom: 2%;
   border: 1px solid #EEEEEE;
   box-shadow: 0 2px 3px #EEEEEE;
-  padding: 5%;
+  padding: 2%;
+  font-size: 3em;
   text-align: center;
   float: left;
 }
