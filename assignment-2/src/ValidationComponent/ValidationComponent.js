@@ -4,7 +4,7 @@ import './ValidationComponent.css'
 
 const validationComponent = (props) => {
   return (
-    <div className="Person">
+    <div className="ValidationComponent">
       <p>{props.text}</p>
       <hr />
       <p>{props.textLengthStatus}</p>
