@@ -1,15 +1,14 @@
 import React from 'react';
-import classes from './Person.module.css'
+import Person from './Person/Person';
 
-const person = (props) => {
-  return (
+const persons = (props) => props.persons.map( (person, index) => {
+    return <Person
+      key={person.id}
+      click={() => props.clicked(index)}
+      changed={(event) => props.changed(event, person.id)}
+      name={person.name}
+      age={person.age}/>
+  }
+);
 
-    <div className={classes.Person}>
-      <p onClick={props.click}>I'm {props.name} and I am {props.age}!</p>
-      <p>{props.children}</p>
-      <input type="text" onChange={props.changed} value={props.name}/>
-    </div>
-  );
-}
-
-export default person;
+export default persons;
