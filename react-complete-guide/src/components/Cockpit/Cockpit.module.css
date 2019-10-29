@@ -22,14 +22,10 @@
   background-color: orange;
 }
 
-.bold {
-  font-weight: bold;
+.redText {
+  color: red;
 }
 
-.red {
-  background-color: red;
-}
-
-.bold {
+.boldText {
   font-weight: bold;
 }

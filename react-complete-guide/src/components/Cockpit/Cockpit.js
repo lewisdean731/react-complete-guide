@@ -8,14 +8,14 @@ const cockpit = (props) => {
   let btnClass = '';
 
   if (props.showPersons) {
-    btnClass = classes.red;
+    btnClass = classes.Red;
   }
 
   if (props.persons.length <= 2){
-    assignedClasses.push(classes.red);
+    assignedClasses.push(classes.redText);
   }
   if (props.persons.length <= 1){
-    assignedClasses.push(classes.bold);
+    assignedClasses.push(classes.boldText);
   }
 
   return (
@@ -23,7 +23,6 @@ const cockpit = (props) => {
       <button className={btnClass}
         onClick={() => props.clicked()}>Toggle Persons
       </button>
-      <h1>Hi, I'm a React App</h1>
       <p className={assignedClasses.join(' ')}>Hi, I'm a React App</p>
     </div>
   );
