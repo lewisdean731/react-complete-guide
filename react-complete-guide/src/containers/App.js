@@ -119,11 +119,12 @@ class App extends Component {
               login: this.loginHandler
             }}
           >
-            {this.state.showCockpit ? (<Cockpit
-              title={this.props.appTitle}
-              showPersons={this.state.showPersons}
-              personsLength={this.state.persons.length}
-              clicked={this.togglePersonsHandler}
+            {this.state.showCockpit ? (
+              <Cockpit
+                title={this.props.appTitle}
+                showPersons={this.state.showPersons}
+                personsLength={this.state.persons.length}
+                clicked={this.togglePersonsHandler}
               />
             ) : null}
             {persons}
