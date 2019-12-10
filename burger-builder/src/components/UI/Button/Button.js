@@ -5,8 +5,8 @@ const button = (props) => (
         className={[classes.Button, classes[props.buttonType]].join(' ')}
         onClick={props.clicked}
         >
-        {props.chilldren}
+        {props.children}
     </button>
 );
 
-export default button
+export default button;
