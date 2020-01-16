@@ -1,33 +1,41 @@
-import React from 'react';
-import Aux from '../../../hoc/Aux';
+import React, {Component} from 'react';
+import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button'
 
-const orderSummary = (props) => {
+class orderSummary extends Component {
+    // Can be functional component
+    //componentWillUpdate() {
+    //   console.log('[OrderSummary] Will update');
+    //}
 
-    const ingredientSummary = Object.keys(props.ingredients)
+    render () {
+        const ingredientSummary = Object.keys(this.props.ingredients)
         .map(igKey => {
             return <li key={igKey}>
-                        <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}
+                        <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {this.props.ingredients[igKey]}
                     </li>
         })
 
 
 
 
-    return (
-        <Aux>
-            <h3>Your Order</h3>
-            <p>Tasty burger boi containing:</p>
-            <ul>
-                {ingredientSummary}
-            </ul>
-            <p><strong>Total Price</strong></p>
-            <p>{props.price.toFixed(2)}</p>
-            <p>Continue to Checkout?</p>
-            <Button buttonType="Danger" clicked={props.cancelOrder}>Cancel</Button>
-            <Button buttonType="Success" clicked={props.continueOrder}>Continue</Button>
-        </Aux>
-    );
-};
+        return (
+            <Aux>
+                <h3>Your Order</h3>
+                <p>Tasty burger boi containing:</p>
+                <ul>
+                    {ingredientSummary}
+                </ul>
+                <p><strong>Total Price</strong></p>
+                <p>{this.props.price.toFixed(2)}</p>
+                <p>Continue to Checkout?</p>
+                <Button buttonType="Danger" clicked={this.props.cancelOrder}>Cancel</Button>
+                <Button buttonType="Success" clicked={this.props.continueOrder}>Continue</Button>
+            </Aux>
+        );
+    }
+}
+
+
 
 export default orderSummary;
